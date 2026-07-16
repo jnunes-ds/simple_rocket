@@ -1,0 +1,56 @@
+{% extends "layouts/application" %}
+
+{% block title %}
+    Edit Client
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card modern-surface border-0">
+                    <div class="card-body p-5">
+                        <h2 class="text-center mb-4">New Client</h2>
+
+                        <form action="/clients/{{ client.id }}/update" method="post">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input
+                                        type="text"
+                                        class="form-control form-control-lg"
+                                        id="name"
+                                        name="name"
+                                        placeholder="Enter client name"
+                                        required
+                                        value="{{ client.name }}"
+                                />
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="cpf" class="form-label">CPF</label>
+                                <input
+                                        type="text"
+                                        class="form-control form-control-lg"
+                                        id="cpf" name="cpf"
+                                        placeholder="000.000.000-00"
+                                        required
+                                        value="{{ client.cpf }}"
+                                />
+                            </div>
+
+                            <div class="d-grid gap-3">
+                                <button type="submit" class="btn btn-primary btn-lg">Update Client</button>
+                                <a href="/clients" class="btn btn-outline-secondary">Cancel</a>
+                            </div>
+                        </form>
+                        {% if error != "" %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

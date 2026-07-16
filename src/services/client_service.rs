@@ -19,3 +19,28 @@ pub fn get_clients() -> Vec<Client> {
         },
     ]
 }
+
+pub fn get_client_by_id(id: u32) -> Result<Client, String> {
+    match get_clients().iter().find(|c| c.id == id) {
+        Some(client) => Ok(Client {
+            id: client.id,
+            name: client.name.clone(),
+            cpf: client.cpf.clone(),
+        }),
+        None => Err("Client not found".to_string()),
+    }
+    
+}
+
+pub fn create_client(name: String, cpf: String) -> bool {
+    true
+}
+
+
+pub fn update_client(id: u32, name: String, cpf: String) -> bool {
+    let client = get_client_by_id(id);
+    if client.is_err() || name.trim() == "" || cpf.trim() == "" {
+        return false;
+    }
+    true
+}

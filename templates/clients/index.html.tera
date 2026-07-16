@@ -15,6 +15,12 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>CPF</th>
+                <th
+                    colspan="2"
+                    style="text-align: center;"
+                >
+                    Actions
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +29,8 @@
                     <td>{{ client.id }}</td>
                     <td>{{ client.name }}</td>
                     <td>{{ client.cpf }}</td>
+                    <td style="width: 1rem"><a href="/clients/{{ client.id }}/edit" class="btn btn-warning">Edit</a></td>
+                    <td style="width: 1rem"><a href="/clients/{{ client.id }}/delete" class="btn btn-danger">Delete</a></td>
                 </tr>
             {% endfor %}
 

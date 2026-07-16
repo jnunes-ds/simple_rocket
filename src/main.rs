@@ -20,6 +20,8 @@ fn rocket() -> _ {
             clients_controller::index,
             clients_controller::new,
             clients_controller::create,
+            clients_controller::edit,
+            clients_controller::update,
         ])
         .mount("/static", FileServer::from(relative!("static")))
         .attach(Template::fairing())
