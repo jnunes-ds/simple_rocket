@@ -1,28 +1,18 @@
 mod models;
 mod services;
+mod controllers;
 
 #[macro_use] extern crate rocket;
-use rocket_dyn_templates::{Template, context};
+use rocket_dyn_templates::Template;
 use serde::Serialize;
-use models::client::Client;
-use services::client_service;
-
-#[get("/clients")]
-fn clients() -> Template {
-    let clients = client_service::get_clients();
-    Template::render("clients", context! {
-        clients: &clients
-    })
-}
-
-#[get("/")]
-fn index() -> Template {
-    Template::render("index", context! {})
-}
+use controllers::{home_controller, clients_controller};
 
 #[launch]
 fn rocket() -> _ {
     rocket::build()
-        .mount("/", routes![index, clients])
+        .mount("/", routes![
+            home_controller::index,
+            clients_controller::index
+        ])
         .attach(Template::fairing())
 }

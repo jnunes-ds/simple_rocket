@@ -1,0 +1,10 @@
+use rocket_dyn_templates::{context, Template};
+use crate::services::client_service;
+
+#[get("/clients")]
+pub fn index() -> Template {
+    let clients = client_service::get_clients();
+    Template::render("clients", context! {
+        clients: &clients
+    })
+}
