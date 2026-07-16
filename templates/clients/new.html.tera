@@ -41,6 +41,11 @@
                             <a href="/clients" class="btn btn-outline-secondary">Cancel</a>
                         </div>
                     </form>
+                    {% if error != "" %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

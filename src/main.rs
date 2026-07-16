@@ -1,5 +1,7 @@
 mod models;
 mod services;
+mod dto;
+
 mod controllers {
     pub mod home_controller;
     pub mod clients_controller;
@@ -17,6 +19,7 @@ fn rocket() -> _ {
             home_controller::index,
             clients_controller::index,
             clients_controller::new,
+            clients_controller::create,
         ])
         .mount("/static", FileServer::from(relative!("static")))
         .attach(Template::fairing())
