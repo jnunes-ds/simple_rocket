@@ -1,12 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Home</h1>
-    <a href="/clients">View Clients</a>
-</body>
-</html>
+{% extends "layouts/application" %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1>Home</h1>
+        <a href="/clients">Clients</a>
+    </div>
+{% endblock content %}

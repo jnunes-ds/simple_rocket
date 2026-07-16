@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sistema{% endblock title %}</title>
+    {% include "layouts/partials/_head" %}
+</head>
+    <body>
+        {% include "layouts/partials/_header" %}
+        <main style="padding-top: 2rem; padding-left: 2rem;">
+            {% block content %}{% endblock content %}
+        </main>
+        {% include "layouts/partials/_footer" %}
+    </body>
+</html>
