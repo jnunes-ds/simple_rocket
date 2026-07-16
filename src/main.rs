@@ -12,7 +12,8 @@ fn rocket() -> _ {
     rocket::build()
         .mount("/", routes![
             home_controller::index,
-            clients_controller::index
+            clients_controller::index,
+            clients_controller::new,
         ])
         .mount("/static", FileServer::from(relative!("static")))
         .attach(Template::fairing())

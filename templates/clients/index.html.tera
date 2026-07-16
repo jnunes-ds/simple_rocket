@@ -6,6 +6,9 @@
 
 {% block content %}
     <h1>Clients</h1>
+    <hr />
+        <a href="/clients/new" class="btn btn-primary btn-lg">New</a>
+    <hr />
     <table class="table table-striped">
         <thead>
             <tr>

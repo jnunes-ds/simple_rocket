@@ -8,3 +8,8 @@ pub fn index() -> Template {
         clients: &clients
     })
 }
+
+#[get("/clients/new")]
+pub fn new() -> Template {
+    Template::render("clients/new", context! {})
+}
