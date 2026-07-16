@@ -73,6 +73,17 @@ pub fn update(id: u32, client_dto_form: Form<ClientDTO>) -> Result<Redirect, Fla
 
 }
 
+#[get("/clients/<id>/delete")]
+pub fn delete(id: u32) -> Result<Redirect, Flash<Redirect>> {
+    match client_service::delete_client_by_id(id) {
+        Ok(_) => Ok(Redirect::to("/clients")),
+        Err(err) => Err(Flash::error(
+            Redirect::to(format!("/clients/{}/edit", id), ),
+            &err
+        ))
+    }
+}
+
 
 fn flash_error(flash: Option<FlashMessage<'_>>) -> String {
     let mut error = "".to_string();

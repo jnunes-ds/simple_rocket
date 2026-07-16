@@ -33,6 +33,9 @@ pub fn get_client_by_id(id: u32) -> Result<Client, String> {
 }
 
 pub fn create_client(name: String, cpf: String) -> bool {
+    if name == "" || cpf == "" {
+        return false
+    }
     true
 }
 
@@ -43,4 +46,12 @@ pub fn update_client(id: u32, name: String, cpf: String) -> bool {
         return false;
     }
     true
+}
+
+pub fn delete_client_by_id(id: u32) -> Result<bool, String> {
+    match get_client_by_id(id) {
+        Ok(_) => Ok(true),
+        Err(e) => Err(e)
+    }
+
 }
